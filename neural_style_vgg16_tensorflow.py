@@ -20,7 +20,6 @@ width, height = load_img(content_img_file).size
 img_nrows = 400
 img_ncols = int(width * img_nrows / height)
 
-
 def gram_matrix(x):
     assert K.ndim(x) == 3
     if K.image_data_format() == 'channels_first':
@@ -29,7 +28,6 @@ def gram_matrix(x):
         features = K.batch_flatten(K.permute_dimensions(x, (2, 0, 1)))
     gram = K.dot(features, K.transpose(features))
     return gram
-
 
 def style_loss(style, combination):
     assert K.ndim(style) == 3
